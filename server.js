@@ -23,15 +23,15 @@ app.use((req,res,next)=>{
     next();
 })
 
-app.use((req,res,next)=>{
+// app.use((req,res,next)=>{
     
-    if(req.url.indexOf('/home') !== -1 || req.url==='/main.css' || req.url==='/main.js'){
-       res.render('home.hbs',{pageTitle:'HOME PAGE',})     
-    }
-    else if(req.url.indexOf('/about') !== -1 || req.url==='/main.css' || req.url==='/main.js'){
-        res.render('about.hbs',{pageTitle:'ABOUT PAGE',})     
-    }
-})
+//     if(req.url.indexOf('/home') !== -1 || req.url==='/main.css' || req.url==='/main.js'){
+//        res.render('home.hbs',{pageTitle:'HOME PAGE',})     
+//     }
+//     else if(req.url.indexOf('/about') !== -1 || req.url==='/main.css' || req.url==='/main.js'){
+//         res.render('about.hbs',{pageTitle:'ABOUT PAGE',})     
+//     }
+// })
 
 
 app.get('/home',(req,res)=>{
@@ -44,7 +44,11 @@ app.get('/about',(req,res)=>{
         pageTitle:'ABOUT PAGE',
     })
 })
-
+app.get('/project',(req,res)=>{
+    res.render('project.hbs',{
+        pageTitle:'project PAGE',
+    })
+})
 
 
 app.use(express.static(__dirname+'/public'))
